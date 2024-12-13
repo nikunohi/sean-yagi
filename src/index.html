@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sean Yagi</title>
+    <link rel="stylesheet" href="./styles/style.css">    
+    <script defer src="./JS/app.js"></script>
+    <link rel="icon" href="Artboard 1favicon.png" type="image/x-icon">
+    
+   
+    <style>
+        #three_canvas {
+        position: fixed;
+        display: block;
+        width: 100vw;
+        height: 100vh;
+ }    
+
+        .hover-text {
+        color: black;
+  }
+        .hover-text:hover {
+        color:  rgb(241,192,20);
+        font-family: 'hydrophilia-iced', sans-serif; line-height: 1em;
+  }
+        .link{
+            position: fixed;
+            bottom: .1rem;
+            right: .2rem;
+            letter-spacing: .001em;
+            font-size: .8rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .section {
+            margin: 5px;
+        }
+
+        .hidden h1 {
+        position: relative;
+        margin-right:200px;
+        font-family: 'meno-display-extra-condensed', serif;
+        font-weight: 100;
+        color: rgba(255, 129, 0, 1);
+        padding: 20px;
+        margin-bottom: 0.5em;
+        width: calc(100% - 200px); 
+        max-width: 60vw; /* Set the maximum width */
+        overflow: hidden;
+        white-space: nowrap;
+        z-index: -1000;
+        font-weight: 600;
+        font-size: 55vw;
+        }
+
+        .hidden h2 {
+        margin-right:200px;
+        font-family: 'meno-display-extra-condensed', serif;
+        font-weight: 100;
+        line-height: 10vh;
+        font-size: 12vh;
+        color: black;
+        padding: 20px;
+        z-index: -1;
+        margin-bottom: 0.5em;
+        width: calc(100% - 200px); 
+        max-width: 60vw; /* Set the maximum width */
+        word-wrap: break-word; /* Ensure long words break to fit the width */
+        overflow-wrap: break-word; /* Adds compatibility for different browsers */
+        text-shadow: .7px .7px .5px rgba(253,243,235, 1);
+        }
+
+        .hidden h4 {
+        position: relative;
+        margin-right:200px;
+        font-family: 'meno-display-extra-condensed', serif;
+        font-weight: 100;
+        color: rgba(255, 129, 0, 1);
+        padding: 20px;
+        margin-bottom: 0.5em;
+        width: calc(100% - 200px); 
+        max-width: 60vw; /* Set the maximum width */
+        word-wrap: break-word; /* Ensure long words break to fit the width */
+        overflow-wrap: break-word; /* Adds compatibility for different browsers */
+        z-index: -1000;
+        font-weight: 600;
+        }
+        
+        @media screen and (max-width: 768px) {
+        .hidden h2 {
+            position: sticky;
+            margin-right:200px;
+            line-height: 2rem;
+            font-size: 3rem;
+            color: black;
+            z-index: 900;
+            margin-bottom: 0.5em;
+            white-space: nowrap;
+            max-width: 100vw; /* Set the maximum width */
+            text-shadow: .7px .7px .5px rgba(253,243,235, 1);
+        }
+
+        }
+        
+    </style>
+    
+</head>
+
+<body>
+    <script id="vertexShader" type="vertex">
+        void main(){
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+    </script>
+    <script id="fragmentShader" type="fragment">
+        void main(){
+            gl_FragColor = vec4(.5, .5, 1, 1);
+        }
+    </script>
+    <div id="canvas_container">
+        <canvas style="z-index: 1000;" hidden id="three_canvas"></canvas>
+    </div>
+
+
+
+   <div class="container" style="font-size: clamp(1rem, 20vw, 1.618rem); font-weight: 100; margin: 0; font-style: normal;">
+        <nav class="sidebar">
+            <ul>
+                <li>
+                    <a href="index.html" class="listtext hidden" style="display: block; padding: 10px; -webkit-text-fill-color:rgba(255, 129, 0, 1); font-weight: 600;">Home</a>
+                </li>
+                <li>
+                    <a href="https://youtu.be/aYHzV2Y9UgY" class="listtext hidden" style="display: block; padding: 10px; ">Work
+
+                    </a>
+                </li>
+                <li>
+                    <a href="https://youtu.be/aYHzV2Y9UgY" target="_blank" class="listtext hidden" style="display: block; padding: 10px; ">Play</a>
+                </li>
+                <li>
+                    <a href="https://youtu.be/aYHzV2Y9UgY" class="listttext hidden" style= "display: block; padding: 10px;">About</a>
+                </li>
+    
+                <span class="link"> <a href="https://www.instagram.com/nikunohii/" style="font-family: 'ivypresto-display', serif; text-decoration: none;" 
+                onmouseover="this.style.color= 'black'; this.style.fontStyle='italic';" 
+                onmouseout="this.style.color= 'rgba(181, 175, 172, 1)'; this.style.fontStyle='normal';">INSTAGRAM</a></span>
+
+            </ul>
+        </nav>
+    </div>  
+
+    <section class="scaling-text hidden" style="position: sticky; top: 0px; margin-top: 7rem;">
+        <h1 >Hi!</h1>
+    </section>
+
+    <section class="hidden" style="color: rgba(181, 175, 172, .5); text-align: right; right: 0; position: sticky; top: 0;"> 
+        <h2>My name is Sean Yagi...</h2>
+    </section>
+
+    <section class="hidden " style="position: sticky; top: 24vh; text-align: right;">
+        <h2>...I'm a graphic designer...</h2>
+    </section>
+
+    <section class="hidden" style="position: sticky; top: 48vh; text-align: right;">
+        <h2>...I throw wild ideas around...</h2>
+    </section>
+        
+    <section class="hidden" style="position: sticky; top: 72vh; text-align: center;">
+        <h2>Wanna catch one?</h2>
+    </section>
+    
+   <div>
+    <img src="../dist/assets/gonefishing1.png" class="photos1 hidden"/>
+   </div>
+
+   <div>
+    <img src="../dist/assets/jazzo2.png" class="photos2 hidden"/>
+   </div>
+
+   <div>
+    <img src="../dist/assets/me.jpg" class="photos3 hidden"/>
+   </div>
+
+    <script type="module" src="./JS/photos1.js"></script>
+    <script type="module" src="./JS/scripts.js"></script>
+
+    <script>
+        window.onload = function() {
+            console.log("All elements are loaded!");
+        };
+    </script>
+</body>
+</html>
