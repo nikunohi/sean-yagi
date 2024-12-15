@@ -1,0 +1,2 @@
+const e=new IntersectionObserver(e=>{e.forEach(e=>{console.log(e),e.isIntersecting?e.target.classList.add("show"):e.target.classList.remove("show")})});document.querySelectorAll(".hidden").forEach(t=>e.observe(t));const t=document.querySelector(".scaling-text");window.addEventListener("scroll",function(){let e=window.scrollY,o=window.innerHeight;t.style.transform=`scale(${1-e/o})`});
+//# sourceMappingURL=index.a0e4fdee.js.map
